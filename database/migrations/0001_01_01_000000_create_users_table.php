@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->enum('role', ['user', 'admin'])->default('user'); // Pembeda User & Admin
+            $table->boolean('is_active')->default(true);             // Status aktif akun
             $table->rememberToken();
             $table->timestamps();
         });
